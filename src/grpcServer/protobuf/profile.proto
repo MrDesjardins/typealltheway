@@ -9,7 +9,7 @@ package profileservice;
 
 
 service ProfileService {
-  rpc GetProfile(ProfileRequest) returns (Profile) {}
+  rpc GetProfile(ProfileRequest) returns (ProfileResponse) {}
   rpc GetProfiles(ProfilesRequest) returns (ProfilesResponse) {}
   rpc ListProfiles(ListProfilesRequest) returns (ProfilesRequest) {}
 }
@@ -26,7 +26,7 @@ message ProfilesRequest {
   repeated int32 ids = 1;
 }
 message ProfilesResponse {
-  repeated Profile rofiles = 1;
+  repeated Profile profiles = 1;
 }
 
 message Profile {
