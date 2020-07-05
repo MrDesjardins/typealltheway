@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "RouteGuideProto";
+option objc_class_prefix = "RTG";
+
+package profileservice;
+
+
+service ProfileService {
+  rpc GetProfile(ProfileRequest) returns (Profile) {}
+  rpc GetProfiles(ProfilesRequest) returns (ProfilesResponse) {}
+  rpc ListProfiles(ListProfilesRequest) returns (ProfilesRequest) {}
+}
+
+
+message ProfileRequest {
+  int32 id = 1;
+}
+message ProfileResponse {
+  Profile profile = 1;
+}
+
+message ProfilesRequest {
+  repeated int32 ids = 1;
+}
+message ProfilesResponse {
+  repeated Profile rofiles = 1;
+}
+
+message Profile {
+  int32 id = 1;
+  string firstname = 2;
+  string lastname = 3;
+  bool active = 4;
+  repeated int32 friendIds = 5;
+}
+
+message ListProfilesRequest {}
