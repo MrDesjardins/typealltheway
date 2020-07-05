@@ -4,7 +4,8 @@
   "description": "Example of gRPC server with automatic TypeScript generation",
   "scripts": {
     "server": "ts-node-dev ./src/grpcServer/server.ts",
-    "client": "ts-node-dev ./src/grpcClient/client.ts"
+    "client": "ts-node-dev ./src/grpcClient/client.ts",
+    "gen": "bash script/generateJsTs.sh"
   },
   "author": "Patrick Desjardins",
   "license": "ISC",
@@ -13,13 +14,13 @@
     "grpc": "^1.24.3",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5"
-    
   },
   "devDependencies": {
     "@types/lodash": "^4.14.157",
     "@types/minimist": "^1.2.0",
     "@types/node": "^14.0.14",
-    "typescript": "^3.9.6",
-    "ts-node-dev": "^1.0.0-pre.50"
+    "grpc_tools_node_protoc_ts": "^4.1.0",
+    "ts-node-dev": "^1.0.0-pre.50",
+    "typescript": "^3.9.6"
   }
 }
