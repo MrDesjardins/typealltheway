@@ -31,10 +31,10 @@ function listProfiles(): any {
 }
 
 const server = new grpc.Server();
-server.addProtoService((profileservice as any).ProfileService.service, {
-  getprofile: getProfile,
-  getprofiles: getProfiles,
-  listprofiles: listProfiles,
+server.addService((profileservice as any).ProfileService.service, {
+  GetProfile: getProfile,
+  GetProfiles: getProfiles,
+  ListProfiles: listProfiles,
 
 });
 
