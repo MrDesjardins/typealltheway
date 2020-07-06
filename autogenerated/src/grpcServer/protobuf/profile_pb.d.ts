@@ -1,5 +1,5 @@
 // package: profileservice
-// file: profile.proto
+// file: src/grpcServer/protobuf/profile.proto
 
 /* tslint:disable */
 /* eslint-disable */
@@ -107,8 +107,8 @@ export class Profile extends jspb.Message {
     getLastname(): string;
     setLastname(value: string): Profile;
 
-    getActive(): boolean;
-    setActive(value: boolean): Profile;
+    getYearactive(): number;
+    setYearactive(value: number): Profile;
 
     clearFriendidsList(): void;
     getFriendidsList(): Array<number>;
@@ -131,7 +131,7 @@ export namespace Profile {
         id: number,
         firstname: string,
         lastname: string,
-        active: boolean,
+        yearactive: number,
         friendidsList: Array<number>,
     }
 }

@@ -33,7 +33,7 @@ message Profile {
   int32 id = 1;
   string firstname = 2;
   string lastname = 3;
-  bool active = 4;
+  int32 yearActive = 4;
   repeated int32 friendIds = 5;
 }
 

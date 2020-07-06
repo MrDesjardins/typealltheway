@@ -783,7 +783,7 @@ proto.profileservice.Profile.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     firstname: jspb.Message.getFieldWithDefault(msg, 2, ""),
     lastname: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    active: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    yearactive: jspb.Message.getFieldWithDefault(msg, 4, 0),
     friendidsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f
   };
 
@@ -834,8 +834,8 @@ proto.profileservice.Profile.deserializeBinaryFromReader = function(msg, reader)
       msg.setLastname(value);
       break;
     case 4:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setActive(value);
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setYearactive(value);
       break;
     case 5:
       var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
@@ -891,9 +891,9 @@ proto.profileservice.Profile.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
-  f = message.getActive();
-  if (f) {
-    writer.writeBool(
+  f = message.getYearactive();
+  if (f !== 0) {
+    writer.writeInt32(
       4,
       f
     );
@@ -963,20 +963,20 @@ proto.profileservice.Profile.prototype.setLastname = function(value) {
 
 
 /**
- * optional bool active = 4;
- * @return {boolean}
+ * optional int32 yearActive = 4;
+ * @return {number}
  */
-proto.profileservice.Profile.prototype.getActive = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 4, false));
+proto.profileservice.Profile.prototype.getYearactive = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /**
- * @param {boolean} value
+ * @param {number} value
  * @return {!proto.profileservice.Profile} returns this
  */
-proto.profileservice.Profile.prototype.setActive = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 4, value);
+proto.profileservice.Profile.prototype.setYearactive = function(value) {
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
