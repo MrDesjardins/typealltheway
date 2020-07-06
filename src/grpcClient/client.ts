@@ -4,7 +4,7 @@ import { ListProfilesRequest, ProfilesRequest, ProfilesResponse, ProfileResponse
 
 const client = new ProfileServiceClient('0.0.0.0:50051', grpc.credentials.createInsecure());
 
-function getListProfiles(): Promise<ProfilesRequest> {
+export function getListProfiles(): Promise<ProfilesRequest> {
   return new Promise<ProfilesRequest>((resolve, reject) => {
     client.listProfiles(new ListProfilesRequest(), (err: grpc.ServiceError | null, data: ProfilesRequest) => {
       if (err) {
@@ -16,7 +16,7 @@ function getListProfiles(): Promise<ProfilesRequest> {
   });
 }
 
-function getProfiles(ids: number[]): Promise<ProfilesResponse> {
+export function getProfiles(ids: number[]): Promise<ProfilesResponse> {
   return new Promise<ProfilesResponse>((resolve, reject) => {
     const request = new ProfilesRequest();
     request.setIdsList(ids);
@@ -30,7 +30,7 @@ function getProfiles(ids: number[]): Promise<ProfilesResponse> {
   });
 }
 
-function getProfile(id: number): Promise<ProfileResponse> {
+export function getProfile(id: number): Promise<ProfileResponse> {
   return new Promise<ProfileResponse>((resolve, reject) => {
     const request = new ProfileRequest();
     request.setId(id);
@@ -43,18 +43,3 @@ function getProfile(id: number): Promise<ProfileResponse> {
     });
   });
 }
-
-const prom1 = getListProfiles();
-prom1.then(d => {
-  console.log(d.getIdsList())
-});
-
-const prom2 = getProfiles([1, 4]);
-prom2.then(d => {
-  console.log(d.toObject().profilesList)
-});
-
-const prom3 = getProfile(3);
-prom3.then(d => {
-  console.log(d.toObject().profile)
-});
