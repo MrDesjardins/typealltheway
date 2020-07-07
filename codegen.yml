@@ -1,0 +1,22 @@
+overwrite: true
+schema: "./src/graphql/**/*.graphql"
+documents: null
+generates:
+  generated/graphql/types.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+      # Disable tslint
+      - add:
+          content:
+            - '/**'
+            - ' * This file was generated using @graphql-codegen based on the .graphql schemas.'
+            - ' * To regenerate, run `npm run generate`. See codegen.yml for config details.'
+            - ' */'
+            - '/* tslint:disable */'
+    config:
+      # All paths are relative to the generated file!
+      useIndexSignature: true # Compatibility with apollo server
+      maybeValue: T | undefined # Avoid dealing with T | undefined | null
+      enumsAsTypes: true # So we can just generate a definition file
+      defaultMapper: Partial<{T}> # Wrapped around all resolver types

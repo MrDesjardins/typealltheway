@@ -1,16 +1,17 @@
-import { getListProfiles, getProfiles, getProfile } from "./client";
+import { ProfileClient } from "./client";
 
-const prom1 = getListProfiles();
+const c = new ProfileClient();
+const prom1 = c.getListProfiles();
 prom1.then(d => {
   console.log(d.getIdsList())
 });
 
-const prom2 = getProfiles([1, 4]);
+const prom2 = c.getProfiles([1, 4]);
 prom2.then(d => {
   console.log(d.toObject().profilesList)
 });
 
-const prom3 = getProfile(3);
+const prom3 = c.getProfile(3);
 prom3.then(d => {
   console.log(d.toObject().profile)
 });

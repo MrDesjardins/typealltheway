@@ -4,7 +4,10 @@
   "description": "Example of gRPC server with automatic TypeScript generation",
   "scripts": {
     "grpc:server": "ts-node-dev ./src/grpcServer/server.ts",
-    "grpc:testclient": "ts-node-dev ./src/grpcClient/testclient.ts"
+    "grpc:testclient": "ts-node-dev ./src/grpcClient/testclient.ts",
+    "graphql:generate:ts": "graphql-codegen --config codegen.yml",
+    "graphql:generate:unified": "ts-node-dev ./scripts/generateGraphQLSchema.ts",
+    "graphql:server": "ts-node-dev ./src/graphql/graphqlServer.ts"
   },
   "author": "Patrick Desjardins",
   "license": "ISC",
@@ -12,10 +15,17 @@
     "apollo-server": "^2.15.1",
     "apollo-server-core": "^2.15.1",
     "apollo-server-express": "^2.15.1",
+    "compression": "^1.7.4",
     "graphql": "^15.3.0",
-    "grpc": "^1.24.3"
+    "grpc": "^1.24.3",
+    "merge-graphql-schemas": "^1.7.8"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^1.16.3",
+    "@graphql-codegen/cli": "^1.16.3",
+    "@graphql-codegen/typescript": "^1.16.3",
+    "@graphql-codegen/typescript-resolvers": "^1.16.3",
+    "@types/compression": "^1.7.0",
     "@types/express": "^4.17.6",
     "@types/google-protobuf": "^3.7.2",
     "@types/graphql": "^14.5.0",
