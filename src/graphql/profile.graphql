@@ -1,9 +1,0 @@
-type Profile {
-  id: Int!
-  name: String
-}
-
-
-type Query {
-  getByFriendsQuantity(qte: Int!): [Profile!]
-}

@@ -1,0 +1,20 @@
+schema: "./output_types/**/*.graphql"
+documents: "./src/webServer/**/*.graphql"
+overwrite: true
+generates:
+    ./src/webServer/generated/typesFromGraphql.ts:
+        config:
+            maybeValue: T | undefined # Avoid dealing with T | undefined | null
+            preResolveTypes: true
+            avoidOptionals: true
+        plugins:
+            - typescript
+            - typescript-operations
+            - add:
+                  content:
+                      - "/**"
+                      - " * This file was generated using @graphql-codegen based on the .graphql schemas."
+                      - " * To regenerate, run `npm run generate`. See codegen.yml for config details."
+                      - " */"
+                      - "/* tslint:disable */"
+require: ["ts-node/register"]

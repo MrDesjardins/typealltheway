@@ -7,13 +7,11 @@ option objc_class_prefix = "RTG";
 
 package profileservice;
 
-
 service ProfileService {
   rpc GetProfile(ProfileRequest) returns (ProfileResponse) {}
   rpc GetProfiles(ProfilesRequest) returns (ProfilesResponse) {}
   rpc ListProfiles(ListProfilesRequest) returns (ProfilesRequest) {}
 }
-
 
 message ProfileRequest {
   int32 id = 1;

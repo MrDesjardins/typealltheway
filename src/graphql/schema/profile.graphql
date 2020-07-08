@@ -7,9 +7,5 @@ type Profile {
 type Query {
   profilestByFriendsQuantity(qte: Int!): [Profile!]
   profiles: [Profile!]
-  profile(id: Int!): Profile
-}
-
-schema {
-  query: Query
+  profile(id:Int!): Profile
 }

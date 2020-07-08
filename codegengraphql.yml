@@ -1,5 +1,5 @@
 overwrite: true
-schema: "./src/graphql/**/*.graphql"
+schema: "./src/graphql/schema/**/*.graphql"
 documents: null
 generates:
   generated/graphql/types.d.ts:
@@ -15,8 +15,7 @@ generates:
             - ' */'
             - '/* tslint:disable */'
     config:
-      # All paths are relative to the generated file!
-      useIndexSignature: true # Compatibility with apollo server
-      maybeValue: T | undefined # Avoid dealing with T | undefined | null
-      enumsAsTypes: true # So we can just generate a definition file
-      defaultMapper: Partial<{T}> # Wrapped around all resolver types
+      useIndexSignature: true
+      maybeValue: T | undefined 
+      enumsAsTypes: true 
+      defaultMapper: Partial<{T}> 

@@ -1,0 +1,18 @@
+# Write your query or mutation here
+query GetFriendsOfFriends{
+    profilestByFriendsQuantity(qte: 2) {
+        ...ProfileWithoutRelationship
+        friends {
+            ...ProfileWithoutRelationship
+            friends {
+                ...ProfileWithoutRelationship
+            }
+        }
+    }
+}
+
+
+fragment ProfileWithoutRelationship on Profile {
+    id
+    name
+}
