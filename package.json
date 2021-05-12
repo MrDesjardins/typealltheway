@@ -23,7 +23,7 @@
     "compression": "^1.7.4",
     "dataloader": "^2.0.0",
     "graphql": "^15.3.0",
-    "grpc": "^1.24.3",
+    "grpc": "^1.24.9",
     "merge-graphql-schemas": "^1.7.8"
   },
   "devDependencies": {
