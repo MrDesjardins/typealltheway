@@ -32,7 +32,7 @@
     "@graphql-codegen/typescript": "^1.16.3",
     "@graphql-codegen/typescript-operations": "^1.16.3",
     "@graphql-codegen/typescript-resolvers": "^1.16.3",
-    "@graphql-inspector/cli": "^2.1.0",
+    "@graphql-inspector/cli": "^3.4.0",
     "@types/compression": "^1.7.0",
     "@types/express": "^4.17.6",
     "@types/google-protobuf": "^3.7.2",
